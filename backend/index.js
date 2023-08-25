@@ -55,6 +55,12 @@ app.get('/fiche-liaison', async (req, res) => {
       extractedData = extractedData.filter(entry => entry.module === moduleFilter);
     }
 
+    // Filter by type de damnde
+    const type_demandeFilter = req.query.type_demande;
+    if (type_demandeFilter) {
+      extractedData = extractedData.filter(entry => entry.type_demande === type_demandeFilter);
+    }
+
       // Filter by date range
       const startDate = req.query.startDate;
       const endDate = req.query.endDate;
